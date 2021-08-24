@@ -63,8 +63,7 @@ class cspooSwiftmailerMailgunExtension extends Extension
         }
 
         $mailgunDef = new Definition(Mailgun::class);
-        $mailgunDef->setFactory([Mailgun::class, 'configure'])
-            ->addArgument($configuratorDef);
+        $mailgunDef->addArgument($configuratorDef);
 
         $container->setDefinition('mailgun.library', $mailgunDef);
     }
